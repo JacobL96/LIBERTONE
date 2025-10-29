@@ -10,9 +10,15 @@ public:
 
     void paint(juce::Graphics&) override;
     void resized() override;
+    void mouseMove(const juce::MouseEvent& e) override
+    {
+        repaint();
+    }
 
 private:
     LIBERTONEAudioProcessor& audioProcessor;
+
+    GlowBarLook glowLook;
 
     juce::Slider gainSlider;
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> gainAttachment;
